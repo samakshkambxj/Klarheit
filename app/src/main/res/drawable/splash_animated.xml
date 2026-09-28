@@ -10,23 +10,23 @@
             android:viewportHeight="108">
 
             <group android:name="bar0_group" android:pivotX="28" android:pivotY="54" android:scaleX="1" android:scaleY="0.4">
-                <path android:name="bar0" android:pathData="M23,44.0h0a5,5 0 0 1 5,5v20a5,5 0 0 1 -5,5h0a5,5 0 0 1 -5,-5v-20a5,5 0 0 1 5,-5z" android:fillColor="#D0BCFF" />
+                <path android:name="bar0" android:pathData="M23,44.0h0a5,5 0 0 1 5,5v20a5,5 0 0 1 -5,5h0a5,5 0 0 1 -5,-5v-20a5,5 0 0 1 5,-5z" android:fillColor="#FFFFFFFF" />
             </group>
 
             <group android:name="bar1_group" android:pivotX="41" android:pivotY="54" android:scaleX="1" android:scaleY="0.4">
-                <path android:name="bar1" android:pathData="M36,36.0h0a5,5 0 0 1 5,5v36a5,5 0 0 1 -5,5h0a5,5 0 0 1 -5,-5v-36a5,5 0 0 1 5,-5z" android:fillColor="#D0BCFF" />
+                <path android:name="bar1" android:pathData="M36,36.0h0a5,5 0 0 1 5,5v36a5,5 0 0 1 -5,5h0a5,5 0 0 1 -5,-5v-36a5,5 0 0 1 5,-5z" android:fillColor="#FFFFFFFF" />
             </group>
 
             <group android:name="bar2_group" android:pivotX="54" android:pivotY="54" android:scaleX="1" android:scaleY="0.4">
-                <path android:name="bar2" android:pathData="M49,29.0h0a5,5 0 0 1 5,5v50a5,5 0 0 1 -5,5h0a5,5 0 0 1 -5,-5v-50a5,5 0 0 1 5,-5z" android:fillColor="#D0BCFF" />
+                <path android:name="bar2" android:pathData="M49,29.0h0a5,5 0 0 1 5,5v50a5,5 0 0 1 -5,5h0a5,5 0 0 1 -5,-5v-50a5,5 0 0 1 5,-5z" android:fillColor="#FFFFFFFF" />
             </group>
 
             <group android:name="bar3_group" android:pivotX="67" android:pivotY="54" android:scaleX="1" android:scaleY="0.4">
-                <path android:name="bar3" android:pathData="M62,39.0h0a5,5 0 0 1 5,5v30a5,5 0 0 1 -5,5h0a5,5 0 0 1 -5,-5v-30a5,5 0 0 1 5,-5z" android:fillColor="#D0BCFF" />
+                <path android:name="bar3" android:pathData="M62,39.0h0a5,5 0 0 1 5,5v30a5,5 0 0 1 -5,5h0a5,5 0 0 1 -5,-5v-30a5,5 0 0 1 5,-5z" android:fillColor="#FFFFFFFF" />
             </group>
 
             <group android:name="bar4_group" android:pivotX="80" android:pivotY="54" android:scaleX="1" android:scaleY="0.4">
-                <path android:name="bar4" android:pathData="M75,46.0h0a5,5 0 0 1 5,5v16a5,5 0 0 1 -5,5h0a5,5 0 0 1 -5,-5v-16a5,5 0 0 1 5,-5z" android:fillColor="#D0BCFF" />
+                <path android:name="bar4" android:pathData="M75,46.0h0a5,5 0 0 1 5,5v16a5,5 0 0 1 -5,5h0a5,5 0 0 1 -5,-5v-16a5,5 0 0 1 5,-5z" android:fillColor="#FFFFFFFF" />
             </group>
 
         </vector>

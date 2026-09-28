@@ -2,7 +2,7 @@
 <resources>
 
     <style name="Theme.Klarheit" parent="android:Theme.Material.Light.NoActionBar">
-        <item name="android:windowSplashScreenBackground">@color/splash_background</item>
+        <item name="android:windowSplashScreenBackground">@color/ic_launcher_background</item>
         <item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_animated</item>
         <item name="android:windowSplashScreenAnimationDuration">1200</item>
     </style>
