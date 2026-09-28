@@ -14,7 +14,10 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -53,8 +56,16 @@ fun SettingsDialog(
 ) {
     val context = LocalContext.current
     val tapCount = remember { mutableIntStateOf(0) }
+    var showAbout by remember { mutableStateOf(false) }
     val debugModeEnabledStr = stringResource(R.string.debug_mode_enabled)
     val debugAlreadyEnabledStr = stringResource(R.string.debug_already_enabled)
+
+    if (showAbout) {
+        AboutDialog(
+            appVersionName = appVersionName,
+            onDismiss = { showAbout = false },
+        )
+    }
 
     AlertDialog(
         modifier = Modifier.fillMaxWidth(0.9f),
@@ -158,6 +169,12 @@ fun SettingsDialog(
                         label = stringResource(R.string.settings_app_version),
                         value = appVersionName,
                         onClick = onCheckUpdate,
+                    )
+                    RowDivider()
+                    NavRow(
+                        label = stringResource(R.string.about_title),
+                        subtitle = stringResource(R.string.about_description),
+                        onClick = { showAbout = true },
                     )
                 }
             }
