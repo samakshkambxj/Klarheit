@@ -283,8 +283,7 @@ fun MainScreen(viewModel: MainViewModel = hiltViewModel()) {
             modifier =
                 Modifier
                     .padding(paddingValues)
-                    .fillMaxSize()
-                    .verticalScroll(rememberScrollState()),
+                    .fillMaxSize(),
         ) {
             Row(
                 modifier =
@@ -337,6 +336,12 @@ fun MainScreen(viewModel: MainViewModel = hiltViewModel()) {
                 }
             }
 
+            Column(
+                modifier =
+                    Modifier
+                        .weight(1f)
+                        .verticalScroll(rememberScrollState()),
+            ) {
             val masterOn = state.masterEnable
             val darkTheme = isSystemInDarkTheme()
             val pillContainer =
@@ -393,6 +398,7 @@ fun MainScreen(viewModel: MainViewModel = hiltViewModel()) {
                 viewModel = viewModel,
             )
             Spacer(modifier = Modifier.height(UiDimens.FabListPadding))
+            }
         }
     }
 }
