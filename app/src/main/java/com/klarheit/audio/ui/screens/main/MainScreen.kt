@@ -6,7 +6,6 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -62,10 +61,6 @@ import com.klarheit.audio.ui.screens.settings.ExcludedAppsDialog
 import com.klarheit.audio.ui.screens.settings.SettingsDialog
 import com.klarheit.audio.ui.screens.settings.UpdateDialog
 import com.klarheit.audio.ui.screens.status.DriverStatusDialog
-import com.klarheit.audio.ui.theme.master_on_container_dark
-import com.klarheit.audio.ui.theme.master_on_container_light
-import com.klarheit.audio.ui.theme.master_on_onContainer_dark
-import com.klarheit.audio.ui.theme.master_on_onContainer_light
 import kotlinx.coroutines.delay
 import kotlin.time.Duration.Companion.milliseconds
 
@@ -343,18 +338,17 @@ fun MainScreen(viewModel: MainViewModel = hiltViewModel()) {
                         .verticalScroll(rememberScrollState()),
             ) {
             val masterOn = state.masterEnable
-            val darkTheme = isSystemInDarkTheme()
             val pillContainer =
-                when {
-                    !masterOn -> MaterialTheme.colorScheme.secondaryContainer
-                    darkTheme -> master_on_container_dark
-                    else -> master_on_container_light
+                if (masterOn) {
+                    MaterialTheme.colorScheme.primaryContainer
+                } else {
+                    MaterialTheme.colorScheme.secondaryContainer
                 }
             val pillContent =
-                when {
-                    !masterOn -> MaterialTheme.colorScheme.onSecondaryContainer
-                    darkTheme -> master_on_onContainer_dark
-                    else -> master_on_onContainer_light
+                if (masterOn) {
+                    MaterialTheme.colorScheme.onPrimaryContainer
+                } else {
+                    MaterialTheme.colorScheme.onSecondaryContainer
                 }
             Card(
                 onClick = { viewModel.setMasterEnabled(!masterOn) },
@@ -382,7 +376,7 @@ fun MainScreen(viewModel: MainViewModel = hiltViewModel()) {
                             stringResource(
                                 if (masterOn) R.string.master_enabled else R.string.master_disabled,
                             ),
-                        style = MaterialTheme.typography.titleLarge,
+                        style = MaterialTheme.typography.titleMedium,
                         modifier = Modifier.weight(1f),
                     )
                     Switch(
