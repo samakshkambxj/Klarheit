@@ -19,18 +19,18 @@
         tools:ignore="PackageVisibilityPolicy,QueryAllPackagesPermission" />
 
     <application
-        android:name=".ViPER4AndroidApp"
+        android:name=".KlarheitApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ViPER4Android"
+        android:theme="@style/Theme.Klarheit"
         tools:targetApi="33">
 
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.ViPER4Android">
+            android:theme="@style/Theme.Klarheit">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -45,7 +45,7 @@
         </activity>
 
         <service
-            android:name=".service.ViperService"
+            android:name=".service.KlarheitService"
             android:exported="false"
             android:foregroundServiceType="specialUse">
 

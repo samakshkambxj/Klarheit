@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ViPER4Android</string>
+    <string name="app_name">Klarheit</string>
     <string name="notification_channel_name">Audio Processing</string>
-    <string name="notification_channel_description">Shows when ViPER4Android is processing audio</string>
-    <string name="notification_title">ViPER4Android</string>
+    <string name="notification_channel_description">Shows when Klarheit is processing audio</string>
+    <string name="notification_title">Klarheit</string>
     <string name="notification_text">Audio processing active</string>
     <string name="notification_bulk_op_channel_name">Bulk Operations</string>
     <string name="notification_bulk_op_channel_description">Progress for bulk operations</string>
@@ -79,7 +79,7 @@
     <string name="label_upper_crossover">Upper Crossover</string>
 
     <!-- DDC -->
-    <string name="section_ddc">ViPER-DDC</string>
+    <string name="section_ddc">Klarheit-DDC</string>
     <string name="label_ddc_device">Headset Correction</string>
 
     <!-- Spectrum Extension -->
@@ -154,15 +154,15 @@
     <string name="label_psycho_bass_harmonic_order">Harmonic Order</string>
     <string name="label_psycho_bass_ori_bass_level">Original Bass Level</string>
 
-    <!-- ViPER Bass -->
-    <string name="section_viper_bass">ViPER Bass</string>
+    <!-- Klarheit Bass -->
+    <string name="section_klarheit_bass">Klarheit Bass</string>
     <string name="label_bass_anti_pop">Fade-in</string>
 
-    <!-- ViPER Bass Mono -->
-    <string name="section_viper_bass_mono">ViPER Bass Mono</string>
+    <!-- Klarheit Bass Mono -->
+    <string name="section_klarheit_bass_mono">Klarheit Bass Mono</string>
 
-    <!-- ViPER Clarity -->
-    <string name="section_viper_clarity">ViPER Clarity</string>
+    <!-- Klarheit Clarity -->
+    <string name="section_klarheit_clarity">Klarheit Clarity</string>
 
     <!-- Cure -->
     <string name="section_cure">Auditory System Protection</string>

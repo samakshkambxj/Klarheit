@@ -1,4 +1,4 @@
-# ViPER4Android APK Build System
+# Klarheit APK Build System
 
 GRADLE  := ./gradlew
 OUT_DIR := app/build/outputs/apk
@@ -10,14 +10,14 @@ VERSION ?= $(shell grep versionName app/build.gradle.kts | awk -F'"' '{print $$2
 debug:
 	$(GRADLE) assembleDebug
 	@mkdir -p $(APK_DIR)
-	@cp $(OUT_DIR)/debug/app-debug.apk $(APK_DIR)/ViPER4Android-$(VERSION)-debug.apk
-	@echo "APK: $(APK_DIR)/ViPER4Android-$(VERSION)-debug.apk"
+	@cp $(OUT_DIR)/debug/app-debug.apk $(APK_DIR)/Klarheit-$(VERSION)-debug.apk
+	@echo "APK: $(APK_DIR)/Klarheit-$(VERSION)-debug.apk"
 
 release:
 	$(GRADLE) assembleRelease
 	@mkdir -p $(APK_DIR)
-	@cp $(OUT_DIR)/release/app-release.apk $(APK_DIR)/ViPER4Android-$(VERSION).apk
-	@echo "APK: $(APK_DIR)/ViPER4Android-$(VERSION).apk"
+	@cp $(OUT_DIR)/release/app-release.apk $(APK_DIR)/Klarheit-$(VERSION).apk
+	@echo "APK: $(APK_DIR)/Klarheit-$(VERSION).apk"
 
 lint:
 	$(GRADLE) lint
@@ -30,7 +30,7 @@ clean:
 	@rm -rf $(APK_DIR)
 
 help:
-	@echo "ViPER4Android APK Build System"
+	@echo "Klarheit APK Build System"
 	@echo ""
 	@echo "Prerequisites:"
 	@echo "  - Android SDK (set ANDROID_HOME)"

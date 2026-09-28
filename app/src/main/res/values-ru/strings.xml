@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ViPER4Android</string>
+    <string name="app_name">Klarheit</string>
     <string name="notification_channel_name">Обработка аудиопотока</string>
-    <string name="notification_channel_description">Показывать уведомление когда ViPER4Android обрабатывает аудиопоток</string>
-    <string name="notification_title">ViPER4Android</string>
+    <string name="notification_channel_description">Показывать уведомление когда Klarheit обрабатывает аудиопоток</string>
+    <string name="notification_title">Klarheit</string>
     <string name="notification_text">Обработка аудиопотока активна</string>
     <string name="notification_bulk_op_channel_name">Групповые операции</string>
     <string name="notification_bulk_op_channel_description">Прогресс выполнения групповых операций</string>
@@ -154,15 +154,15 @@
     <string name="label_psycho_bass_harmonic_order">Порядок гармоник</string>
     <string name="label_psycho_bass_ori_bass_level">Уровень исходного баса</string>
 
-    <!-- ViPER Bass -->
-    <string name="section_viper_bass">ViPER Bass</string>
+    <!-- Klarheit Bass -->
+    <string name="section_klarheit_bass">Klarheit Bass</string>
     <string name="label_bass_anti_pop">Плавное нарастание</string>
 
-    <!-- ViPER Bass Mono -->
-    <string name="section_viper_bass_mono">ViPER Bass (mono)</string>
+    <!-- Klarheit Bass Mono -->
+    <string name="section_klarheit_bass_mono">Klarheit Bass (mono)</string>
 
-    <!-- ViPER Clarity -->
-    <string name="section_viper_clarity">ViPER Clarity</string>
+    <!-- Klarheit Clarity -->
+    <string name="section_klarheit_clarity">Klarheit Clarity</string>
 
     <!-- Cure -->
     <string name="section_cure">Защита слуха</string>

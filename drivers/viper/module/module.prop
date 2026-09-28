@@ -1,7 +1,7 @@
-id=ViPER4Android-RE
-name=ViPER4Android Reverse Engineered
+id=klarheit
+name=Klarheit DSP
 version=
 versionCode=
-author=pittvandewitt, MrWhite214, Zackptg5, Martmists, Iscle, llsl
-description=ViPER4Android Reverse Engineered is an audio enhancing software to provide everyone with a better audio experience
-updateJson=https://raw.githubusercontent.com/likelikeslike/ViPERFX_RE/dev/magisk/update.json
+author=Klarheit (fork of ViPER4Android-RE by pittvandewitt, MrWhite214, Zackptg5, Martmists, Iscle, llsl)
+description=Klarheit DSP is an audio enhancing software to provide everyone with a better audio experience
+updateJson=https://raw.githubusercontent.com/samakshkambxj/Klarheit/main/drivers/viper/magisk/update.json

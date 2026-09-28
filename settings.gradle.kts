@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ViPER4Android"
+rootProject.name = "Klarheit"
 include(":app")

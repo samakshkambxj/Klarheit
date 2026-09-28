@@ -14,11 +14,11 @@ val localProps =
     }
 
 android {
-    namespace = "com.llsl.viper4android"
+    namespace = "com.klarheit.audio"
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "com.llsl.viper4android"
+        applicationId = "com.klarheit.audio"
         minSdk = 28
         targetSdk = 37
         versionCode = 1
