@@ -20,10 +20,10 @@ jobs:
           distribution: temurin
           java-version: "21"
 
-      - uses: android-actions/setup-android@v3
-
       - name: Install SDK packages
-        run: sdkmanager "platform-tools" "platforms;android-37.0" "build-tools;37.0.0"
+        run: |
+          yes | sdkmanager --licenses > /dev/null
+          sdkmanager "platform-tools" "platforms;android-37.0" "build-tools;37.0.0"
 
       - uses: gradle/actions/setup-gradle@v4
 
@@ -49,14 +49,15 @@ jobs:
           distribution: temurin
           java-version: "21"
 
-      - uses: android-actions/setup-android@v3
-
       - name: Install NDK
-        run: sdkmanager "ndk;28.2.13676358"
+        run: |
+          yes | sdkmanager --licenses > /dev/null
+          sdkmanager "ndk;28.2.13676358"
 
       - name: Build driver + Magisk zips
         run: |
-          export ANDROID_NDK_HOME="$ANDROID_HOME/ndk/28.2.13676358"
+          SDK="${ANDROID_HOME:-$ANDROID_SDK_ROOT}"
+          export ANDROID_NDK_HOME="$SDK/ndk/28.2.13676358"
           if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
             TAG="${GITHUB_REF#refs/tags/}"
             make -C drivers/viper libs zip VERSION_NAME="$TAG" VERSION_CODE="$GITHUB_RUN_NUMBER"
