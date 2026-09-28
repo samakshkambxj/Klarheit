@@ -22,8 +22,10 @@ jobs:
 
       - name: Install SDK packages
         run: |
-          yes | sdkmanager --licenses > /dev/null
-          sdkmanager "platform-tools" "platforms;android-37.0" "build-tools;37.0.0"
+          SDK="${ANDROID_HOME:-$ANDROID_SDK_ROOT}"
+          SDM="$SDK/cmdline-tools/latest/bin/sdkmanager"
+          yes | "$SDM" --licenses > /dev/null
+          "$SDM" "platform-tools" "platforms;android-37.0" "build-tools;37.0.0"
 
       - uses: gradle/actions/setup-gradle@v4
 
@@ -51,8 +53,10 @@ jobs:
 
       - name: Install NDK
         run: |
-          yes | sdkmanager --licenses > /dev/null
-          sdkmanager "ndk;28.2.13676358"
+          SDK="${ANDROID_HOME:-$ANDROID_SDK_ROOT}"
+          SDM="$SDK/cmdline-tools/latest/bin/sdkmanager"
+          yes | "$SDM" --licenses > /dev/null
+          "$SDM" "ndk;28.2.13676358"
 
       - name: Build driver + Magisk zips
         run: |
