@@ -401,14 +401,14 @@ private val GroupFirstShape =
     RoundedCornerShape(
         topStart = UiDimens.DialogCornerRadius,
         topEnd = UiDimens.DialogCornerRadius,
-        bottomStart = UiDimens.Medium,
-        bottomEnd = UiDimens.Medium,
+        bottomStart = UiDimens.XSmall,
+        bottomEnd = UiDimens.XSmall,
     )
-private val GroupMiddleShape = RoundedCornerShape(UiDimens.Medium)
+private val GroupMiddleShape = RoundedCornerShape(UiDimens.XSmall)
 private val GroupLastShape =
     RoundedCornerShape(
-        topStart = UiDimens.Medium,
-        topEnd = UiDimens.Medium,
+        topStart = UiDimens.XSmall,
+        topEnd = UiDimens.XSmall,
         bottomStart = UiDimens.DialogCornerRadius,
         bottomEnd = UiDimens.DialogCornerRadius,
     )
