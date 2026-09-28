@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -361,7 +362,7 @@ fun MainScreen(viewModel: MainViewModel = hiltViewModel()) {
                 modifier =
                     Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = UiDimens.Medium)
+                        .padding(horizontal = UiDimens.Large)
                         .height(76.dp),
             ) {
                 Row(
@@ -396,6 +397,22 @@ fun MainScreen(viewModel: MainViewModel = hiltViewModel()) {
     }
 }
 
+private val GroupFirstShape =
+    RoundedCornerShape(
+        topStart = UiDimens.DialogCornerRadius,
+        topEnd = UiDimens.DialogCornerRadius,
+        bottomStart = UiDimens.Large,
+        bottomEnd = UiDimens.Large,
+    )
+private val GroupMiddleShape = RoundedCornerShape(UiDimens.Large)
+private val GroupLastShape =
+    RoundedCornerShape(
+        topStart = UiDimens.Large,
+        topEnd = UiDimens.Large,
+        bottomStart = UiDimens.DialogCornerRadius,
+        bottomEnd = UiDimens.DialogCornerRadius,
+    )
+
 @Composable
 private fun EffectList(
     state: EffectState,
@@ -411,29 +428,29 @@ private fun EffectList(
     Column(
         modifier = modifier.fillMaxWidth().graphicsLayer { this.alpha = alpha },
     ) {
-        MasterLimiterRows(state, viewModel)
-        PlaybackGainSection(state, viewModel)
-        LUFSTargetingSection(state, viewModel)
-        MultibandCompressorSection(state, viewModel)
-        FetCompressorSection(state, viewModel)
-        DdcSection(state, viewModel)
-        SpectrumExtensionSection(state, viewModel)
-        EqualizerSection(state, viewModel)
-        DynamicEqSection(state, viewModel)
-        ConvolverSection(state, viewModel)
-        FieldSurroundSection(state, viewModel)
-        DiffSurroundSection(state, viewModel)
-        StereoImagerSection(state, viewModel)
-        HeadphoneSurroundSection(state, viewModel)
-        ReverberationSection(state, viewModel)
-        DynamicSystemSection(state, viewModel)
-        TubeSimulatorSection(state, viewModel)
-        PsychoacousticBassSection(state, viewModel)
-        KlarheitBassSection(state, viewModel)
-        KlarheitBassMonoSection(state, viewModel)
-        KlarheitClaritySection(state, viewModel)
-        AuditoryProtectionSection(state, viewModel)
-        AnalogXSection(state, viewModel)
-        SpeakerOptSection(state, viewModel)
+        MasterLimiterRows(state, viewModel, shape = GroupFirstShape)
+        PlaybackGainSection(state, viewModel, shape = GroupMiddleShape)
+        LUFSTargetingSection(state, viewModel, shape = GroupMiddleShape)
+        MultibandCompressorSection(state, viewModel, shape = GroupMiddleShape)
+        FetCompressorSection(state, viewModel, shape = GroupMiddleShape)
+        DdcSection(state, viewModel, shape = GroupMiddleShape)
+        SpectrumExtensionSection(state, viewModel, shape = GroupMiddleShape)
+        EqualizerSection(state, viewModel, shape = GroupMiddleShape)
+        DynamicEqSection(state, viewModel, shape = GroupMiddleShape)
+        ConvolverSection(state, viewModel, shape = GroupMiddleShape)
+        FieldSurroundSection(state, viewModel, shape = GroupMiddleShape)
+        DiffSurroundSection(state, viewModel, shape = GroupMiddleShape)
+        StereoImagerSection(state, viewModel, shape = GroupMiddleShape)
+        HeadphoneSurroundSection(state, viewModel, shape = GroupMiddleShape)
+        ReverberationSection(state, viewModel, shape = GroupMiddleShape)
+        DynamicSystemSection(state, viewModel, shape = GroupMiddleShape)
+        TubeSimulatorSection(state, viewModel, shape = GroupMiddleShape)
+        PsychoacousticBassSection(state, viewModel, shape = GroupMiddleShape)
+        KlarheitBassSection(state, viewModel, shape = GroupMiddleShape)
+        KlarheitBassMonoSection(state, viewModel, shape = GroupMiddleShape)
+        KlarheitClaritySection(state, viewModel, shape = GroupMiddleShape)
+        AuditoryProtectionSection(state, viewModel, shape = GroupMiddleShape)
+        AnalogXSection(state, viewModel, shape = GroupMiddleShape)
+        SpeakerOptSection(state, viewModel, shape = GroupLastShape)
     }
 }

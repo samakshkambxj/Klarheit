@@ -66,6 +66,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalHapticFeedback
@@ -107,7 +108,7 @@ private val DynamicEqTabIconSize = UiDimens.IconSmall
 private val DynamicSystemButtonIconSize = EffectHorizontalPadding
 private val DynamicSystemButtonIconSpacing = UiDimens.XSmall
 private val DynamicSystemButtonSpacing = UiDimens.Medium
-private val EffectCardHorizontalPadding = UiDimens.Medium
+private val EffectCardHorizontalPadding = UiDimens.Large
 private val EffectCardVerticalPadding = UiDimens.Hairline
 private val EffectContentPadding = EffectHorizontalPadding
 private val EffectHeaderIconSize = UiDimens.IconMedium
@@ -132,6 +133,7 @@ fun EffectSection(
     hasEnableSwitch: Boolean = true,
     toggleOnly: Boolean = false,
     initiallyExpanded: Boolean = false,
+    shape: Shape = CardDefaults.shape,
     content: @Composable () -> Unit,
 ) {
     var expanded by rememberSaveable { mutableStateOf(initiallyExpanded) }
@@ -226,6 +228,7 @@ fun EffectSection(
                     horizontal = EffectCardHorizontalPadding,
                     vertical = EffectCardVerticalPadding,
                 ),
+        shape = shape,
         colors =
             CardDefaults.cardColors(
                 containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
@@ -268,6 +271,7 @@ fun EffectSection(
 fun MasterLimiterRows(
     state: EffectState,
     viewModel: MainViewModel,
+    shape: Shape = CardDefaults.shape,
 ) {
     val outputVolume = state.out.volume
     val channelPan = state.out.channelPan
@@ -277,6 +281,7 @@ fun MasterLimiterRows(
     val left = ((1.0f - channelPan) * 50.0f).roundToInt()
     val right = ((1.0f + channelPan) * 50.0f).roundToInt()
     EffectSection(
+        shape = shape,
         title = stringResource(R.string.section_master_limiter),
         enabled = true,
         onEnabledChange = {},
@@ -336,6 +341,7 @@ fun MasterLimiterRows(
 fun PlaybackGainSection(
     state: EffectState,
     viewModel: MainViewModel,
+    shape: Shape = CardDefaults.shape,
 ) {
     val vals = state.playbackGainControl
     val enabled = vals.enable
@@ -344,6 +350,7 @@ fun PlaybackGainSection(
     val threshold = vals.outputThreshold
 
     EffectSection(
+        shape = shape,
         title = stringResource(R.string.section_agc),
         enabled = enabled,
         onEnabledChange = viewModel::setPlaybackGainControlEnabled,
@@ -403,6 +410,7 @@ fun PlaybackGainSection(
 fun LUFSTargetingSection(
     state: EffectState,
     viewModel: MainViewModel,
+    shape: Shape = CardDefaults.shape,
 ) {
     val vals = state.lufs
     val enabled = vals.enable
@@ -418,6 +426,7 @@ fun LUFSTargetingSection(
         )
 
     EffectSection(
+        shape = shape,
         title = stringResource(R.string.section_lufs_targeting),
         enabled = enabled,
         onEnabledChange = viewModel::setLufsEnabled,
@@ -469,6 +478,7 @@ fun LUFSTargetingSection(
 fun FetCompressorSection(
     state: EffectState,
     viewModel: MainViewModel,
+    shape: Shape = CardDefaults.shape,
 ) {
     val vals = state.fetCompressor
     val enabled = vals.enable
@@ -499,6 +509,7 @@ fun FetCompressorSection(
     val crestMs = compressorSecondsToMs(crest)
 
     EffectSection(
+        shape = shape,
         title = stringResource(R.string.section_fet_compressor),
         enabled = enabled,
         onEnabledChange = viewModel::setFetCompressorEnabled,
@@ -740,6 +751,7 @@ fun FetCompressorSection(
 fun MultibandCompressorSection(
     state: EffectState,
     viewModel: MainViewModel,
+    shape: Shape = CardDefaults.shape,
 ) {
     val multibandCompressorVals = state.multibandCompressor
     val enabled = multibandCompressorVals.enable
@@ -816,6 +828,7 @@ fun MultibandCompressorSection(
     val onNoClipChange: (Boolean) -> Unit = { viewModel.applyBandPref(Effects.multibandCompressor.noClips, b, it) }
 
     EffectSection(
+        shape = shape,
         title = stringResource(R.string.section_multiband_compressor),
         enabled = enabled,
         onEnabledChange = viewModel::setMultibandCompressorEnabled,
@@ -1080,6 +1093,7 @@ fun MultibandCompressorSection(
 fun DdcSection(
     state: EffectState,
     viewModel: MainViewModel,
+    shape: Shape = CardDefaults.shape,
 ) {
     val vals = state.ddc
     val enabled = vals.enable
@@ -1090,6 +1104,7 @@ fun DdcSection(
     val cdvOptions = listOf(vdcNoneLabel) + vdcFiles
 
     EffectSection(
+        shape = shape,
         title = stringResource(R.string.section_ddc),
         enabled = enabled,
         onEnabledChange = viewModel::setDdcEnabled,
@@ -1113,6 +1128,7 @@ fun DdcSection(
 fun SpectrumExtensionSection(
     state: EffectState,
     viewModel: MainViewModel,
+    shape: Shape = CardDefaults.shape,
 ) {
     val vals = state.spectrumExtension
     val enabled = vals.enable
@@ -1120,6 +1136,7 @@ fun SpectrumExtensionSection(
     val exciter = vals.exciter
 
     EffectSection(
+        shape = shape,
         title = stringResource(R.string.section_spectrum_extension),
         enabled = enabled,
         onEnabledChange = viewModel::setSpectrumExtensionEnabled,
@@ -1164,6 +1181,7 @@ fun SpectrumExtensionSection(
 fun EqualizerSection(
     state: EffectState,
     viewModel: MainViewModel,
+    shape: Shape = CardDefaults.shape,
 ) {
     val eqVals = state.eq
     val enabled = eqVals.enable
@@ -1185,6 +1203,7 @@ fun EqualizerSection(
     val onReset = viewModel::resetEqBands
 
     EffectSection(
+        shape = shape,
         title = stringResource(R.string.section_equalizer),
         enabled = enabled,
         onEnabledChange = onEnabledChange,
@@ -1238,6 +1257,7 @@ fun EqualizerSection(
 fun DynamicEqSection(
     state: EffectState,
     viewModel: MainViewModel,
+    shape: Shape = CardDefaults.shape,
 ) {
     val dynVals = state.dynamicEq
     val enabled = dynVals.enable
@@ -1282,6 +1302,7 @@ fun DynamicEqSection(
     }
 
     EffectSection(
+        shape = shape,
         title = stringResource(R.string.section_dynamic_eq),
         enabled = enabled,
         onEnabledChange = viewModel::setDynamicEqEnabled,
@@ -1472,6 +1493,7 @@ fun DynamicEqSection(
 fun ConvolverSection(
     state: EffectState,
     viewModel: MainViewModel,
+    shape: Shape = CardDefaults.shape,
 ) {
     val vals = state.convolver
     val enabled = vals.enable
@@ -1483,6 +1505,7 @@ fun ConvolverSection(
     val kernelOptions = listOf(kernelNoneLabel) + kernelFiles
 
     EffectSection(
+        shape = shape,
         title = stringResource(R.string.section_convolver),
         enabled = enabled,
         onEnabledChange = viewModel::setConvolverEnabled,
@@ -1520,6 +1543,7 @@ fun ConvolverSection(
 fun FieldSurroundSection(
     state: EffectState,
     viewModel: MainViewModel,
+    shape: Shape = CardDefaults.shape,
 ) {
     val vals = state.fieldSurround
     val enabled = vals.enable
@@ -1528,6 +1552,7 @@ fun FieldSurroundSection(
     val depth = vals.depth
 
     EffectSection(
+        shape = shape,
         title = stringResource(R.string.section_field_surround),
         enabled = enabled,
         onEnabledChange = viewModel::setFieldSurroundEnabled,
@@ -1590,6 +1615,7 @@ fun FieldSurroundSection(
 fun DiffSurroundSection(
     state: EffectState,
     viewModel: MainViewModel,
+    shape: Shape = CardDefaults.shape,
 ) {
     val vals = state.diffSurround
     val enabled = vals.enable
@@ -1599,6 +1625,7 @@ fun DiffSurroundSection(
     val lpCutoff = vals.lpCutoff
 
     EffectSection(
+        shape = shape,
         title = stringResource(R.string.section_diff_surround),
         enabled = enabled,
         onEnabledChange = viewModel::setDiffSurroundEnabled,
@@ -1664,6 +1691,7 @@ fun DiffSurroundSection(
 fun StereoImagerSection(
     state: EffectState,
     viewModel: MainViewModel,
+    shape: Shape = CardDefaults.shape,
 ) {
     val vals = state.stereoImager
     val enabled = vals.enable
@@ -1674,6 +1702,7 @@ fun StereoImagerSection(
     val highCrossover = vals.highCrossover
 
     EffectSection(
+        shape = shape,
         title = stringResource(R.string.section_stereo_imager),
         enabled = enabled,
         onEnabledChange = viewModel::setStereoImagerEnabled,
@@ -1764,12 +1793,14 @@ fun StereoImagerSection(
 fun HeadphoneSurroundSection(
     state: EffectState,
     viewModel: MainViewModel,
+    shape: Shape = CardDefaults.shape,
 ) {
     val vals = state.headphoneSurround
     val enabled = vals.enable
     val quality = vals.quality
 
     EffectSection(
+        shape = shape,
         title = stringResource(R.string.section_headphone_surround),
         enabled = enabled,
         onEnabledChange = viewModel::setHeadphoneSurroundEnabled,
@@ -1797,6 +1828,7 @@ fun HeadphoneSurroundSection(
 fun ReverberationSection(
     state: EffectState,
     viewModel: MainViewModel,
+    shape: Shape = CardDefaults.shape,
 ) {
     val vals = state.reverb
     val enabled = vals.enable
@@ -1807,6 +1839,7 @@ fun ReverberationSection(
     val dry = vals.dry
 
     EffectSection(
+        shape = shape,
         title = stringResource(R.string.section_reverb),
         enabled = enabled,
         onEnabledChange = viewModel::setReverbEnabled,
@@ -1892,6 +1925,7 @@ fun ReverberationSection(
 fun DynamicSystemSection(
     state: EffectState,
     viewModel: MainViewModel,
+    shape: Shape = CardDefaults.shape,
 ) {
     val vals = state.dynamicSystem
     val enabled = vals.enable
@@ -1920,6 +1954,7 @@ fun DynamicSystemSection(
     val onReset = viewModel::resetDynamicSystemCoefficients
 
     EffectSection(
+        shape = shape,
         title = stringResource(R.string.section_dynamic_system),
         enabled = enabled,
         onEnabledChange = viewModel::setDynamicSystemEnabled,
@@ -2121,11 +2156,13 @@ fun DynamicSystemSection(
 fun TubeSimulatorSection(
     state: EffectState,
     viewModel: MainViewModel,
+    shape: Shape = CardDefaults.shape,
 ) {
     val vals = state.tubeSimulator
     val enabled = vals.enable
 
     EffectSection(
+        shape = shape,
         title = stringResource(R.string.section_tube_simulator),
         enabled = enabled,
         onEnabledChange = viewModel::setTubeSimulatorEnabled,
@@ -2139,6 +2176,7 @@ fun TubeSimulatorSection(
 fun PsychoacousticBassSection(
     state: EffectState,
     viewModel: MainViewModel,
+    shape: Shape = CardDefaults.shape,
 ) {
     val vals = state.psychoacousticBass
     val enabled = vals.enable
@@ -2158,6 +2196,7 @@ fun PsychoacousticBassSection(
     val harmonicIndex = harmonicValues.indexOf(harmonicOrder).coerceAtLeast(0)
 
     EffectSection(
+        shape = shape,
         title = stringResource(R.string.section_psycho_bass),
         enabled = enabled,
         onEnabledChange = viewModel::setPsychoacousticBassEnabled,
@@ -2229,6 +2268,7 @@ fun PsychoacousticBassSection(
 fun KlarheitBassSection(
     state: EffectState,
     viewModel: MainViewModel,
+    shape: Shape = CardDefaults.shape,
 ) {
     val vals = state.bass
     val enabled = vals.enable
@@ -2245,6 +2285,7 @@ fun KlarheitBassSection(
         )
 
     EffectSection(
+        shape = shape,
         title = stringResource(R.string.section_klarheit_bass),
         enabled = enabled,
         onEnabledChange = viewModel::setBassEnabled,
@@ -2302,6 +2343,7 @@ fun KlarheitBassSection(
 fun KlarheitBassMonoSection(
     state: EffectState,
     viewModel: MainViewModel,
+    shape: Shape = CardDefaults.shape,
 ) {
     val vals = state.bassMono
     val enabled = vals.enable
@@ -2318,6 +2360,7 @@ fun KlarheitBassMonoSection(
         )
 
     EffectSection(
+        shape = shape,
         title = stringResource(R.string.section_klarheit_bass_mono),
         enabled = enabled,
         onEnabledChange = viewModel::setBassMonoEnabled,
@@ -2375,6 +2418,7 @@ fun KlarheitBassMonoSection(
 fun KlarheitClaritySection(
     state: EffectState,
     viewModel: MainViewModel,
+    shape: Shape = CardDefaults.shape,
 ) {
     val vals = state.clarity
     val enabled = vals.enable
@@ -2389,6 +2433,7 @@ fun KlarheitClaritySection(
         )
 
     EffectSection(
+        shape = shape,
         title = stringResource(R.string.section_klarheit_clarity),
         enabled = enabled,
         onEnabledChange = viewModel::setClarityEnabled,
@@ -2423,6 +2468,7 @@ fun KlarheitClaritySection(
 fun AuditoryProtectionSection(
     state: EffectState,
     viewModel: MainViewModel,
+    shape: Shape = CardDefaults.shape,
 ) {
     val vals = state.cure
     val enabled = vals.enable
@@ -2436,6 +2482,7 @@ fun AuditoryProtectionSection(
         )
 
     EffectSection(
+        shape = shape,
         title = stringResource(R.string.section_cure),
         enabled = enabled,
         onEnabledChange = viewModel::setCureEnabled,
@@ -2457,6 +2504,7 @@ fun AuditoryProtectionSection(
 fun AnalogXSection(
     state: EffectState,
     viewModel: MainViewModel,
+    shape: Shape = CardDefaults.shape,
 ) {
     val vals = state.analogX
     val enabled = vals.enable
@@ -2470,6 +2518,7 @@ fun AnalogXSection(
         )
 
     EffectSection(
+        shape = shape,
         title = stringResource(R.string.section_analogx),
         enabled = enabled,
         onEnabledChange = viewModel::setAnalogXEnabled,
@@ -2489,8 +2538,10 @@ fun AnalogXSection(
 fun SpeakerOptSection(
     state: EffectState,
     viewModel: MainViewModel,
+    shape: Shape = CardDefaults.shape,
 ) {
     EffectSection(
+        shape = shape,
         title = stringResource(R.string.section_speaker_optimization),
         enabled = state.speakerCorrection.enable,
         onEnabledChange = viewModel::setSpeakerCorrectionEnabled,
