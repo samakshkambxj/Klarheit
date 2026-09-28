@@ -1,0 +1,7 @@
+ViPER base import manifest:
+- app/ <= likelikeslike/ViPER4Android@main f05926f
+- drivers/viper/ <= likelikeslike/ViPERFX_RE@dev e5e4015 (ViPERDSP 07e915c)
+- Makefile.app <= ViPER4Android/Makefile
+- tools-viper-app/ <= ViPER4Android/tools
+- gradle/, build.gradle.kts, settings.gradle.kts, gradlew* <= ViPER4Android
+- LICENSE <= ViPER4Android (GPL-3.0)

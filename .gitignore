@@ -1,0 +1,28 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+/app/build
+/app/schemas
+/tmp
+.kotlin/
+*.jks
+*.keystore
+/apk
+# driver / cmake
+build/
+out/
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+*.so
+*.o
+# node / misc
+node_modules/

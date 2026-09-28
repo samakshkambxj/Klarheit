@@ -1,0 +1,4 @@
+-keepattributes *Annotation*
+-keep class javax.inject.** { *; }
+-keep class * extends androidx.room.RoomDatabase
+-keep @androidx.room.Entity class *
