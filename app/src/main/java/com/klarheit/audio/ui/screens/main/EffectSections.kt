@@ -107,7 +107,7 @@ private val DynamicEqTabIconSize = UiDimens.IconSmall
 private val DynamicSystemButtonIconSize = EffectHorizontalPadding
 private val DynamicSystemButtonIconSpacing = UiDimens.XSmall
 private val DynamicSystemButtonSpacing = UiDimens.Medium
-private val EffectCardHorizontalPadding = EffectHorizontalPadding
+private val EffectCardHorizontalPadding = UiDimens.Medium
 private val EffectCardVerticalPadding = UiDimens.Hairline
 private val EffectContentPadding = EffectHorizontalPadding
 private val EffectHeaderIconSize = UiDimens.IconMedium
@@ -228,7 +228,7 @@ fun EffectSection(
                 ),
         colors =
             CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+                containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
             ),
     ) {
         Body()

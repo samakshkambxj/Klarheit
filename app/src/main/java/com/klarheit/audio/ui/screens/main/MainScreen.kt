@@ -361,7 +361,7 @@ fun MainScreen(viewModel: MainViewModel = hiltViewModel()) {
                 modifier =
                     Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = UiDimens.Standard)
+                        .padding(horizontal = UiDimens.Medium)
                         .height(76.dp),
             ) {
                 Row(
@@ -390,7 +390,6 @@ fun MainScreen(viewModel: MainViewModel = hiltViewModel()) {
             EffectList(
                 state = state,
                 viewModel = viewModel,
-                modifier = Modifier.padding(horizontal = UiDimens.Standard),
             )
             Spacer(modifier = Modifier.height(UiDimens.FabListPadding))
         }
