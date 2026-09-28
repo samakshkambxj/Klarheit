@@ -6,35 +6,35 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Switch
+import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.BugReport
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.LibraryMusic
-import androidx.compose.material.icons.filled.PowerSettingsNew
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.SpeakerGroup
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FabPosition
-import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -65,7 +65,6 @@ import com.klarheit.audio.ui.theme.master_on_container_dark
 import com.klarheit.audio.ui.theme.master_on_container_light
 import com.klarheit.audio.ui.theme.master_on_onContainer_dark
 import com.klarheit.audio.ui.theme.master_on_onContainer_light
-import com.klarheit.audio.ui.theme.status_active_green
 import kotlinx.coroutines.delay
 import kotlin.time.Duration.Companion.milliseconds
 
@@ -278,109 +277,123 @@ fun MainScreen(viewModel: MainViewModel = hiltViewModel()) {
         )
     }
 
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = {
-                    Column {
-                        Text(stringResource(R.string.app_name))
-                        val deviceName = state.activeDeviceName
-                        if (deviceName.isNotEmpty()) {
-                            val dotColor =
-                                if (state.masterEnable) {
-                                    status_active_green
-                                } else {
-                                    MaterialTheme.colorScheme.onSurfaceVariant
-                                }
-                            Row(verticalAlignment = Alignment.CenterVertically) {
-                                Canvas(modifier = Modifier.size(UiDimens.Small)) {
-                                    drawCircle(dotColor)
-                                }
-                                Spacer(modifier = Modifier.width(UiDimens.Small))
-                                Text(
-                                    text = deviceName,
-                                    style = MaterialTheme.typography.labelSmall,
-                                    color = MaterialTheme.colorScheme.onPrimaryContainer,
-                                )
-                            }
-                        }
-                    }
-                },
-                colors =
-                    TopAppBarDefaults.topAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.primaryContainer,
-                        titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
-                        actionIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
-                    ),
-                actions = {
-                    if (debugMode) {
-                        IconButton(onClick = { showDebugLog = true }) {
-                            Icon(
-                                Icons.Default.BugReport,
-                                contentDescription = stringResource(R.string.debug_log_title),
-                            )
-                        }
-                    }
-                    IconButton(onClick = { showDeviceDialog = true }) {
+    Scaffold { paddingValues ->
+        Column(
+            modifier =
+                Modifier
+                    .padding(paddingValues)
+                    .fillMaxSize()
+                    .verticalScroll(rememberScrollState()),
+        ) {
+            Row(
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(
+                            start = UiDimens.Standard,
+                            end = UiDimens.XSmall,
+                            top = UiDimens.Medium,
+                            bottom = UiDimens.Small,
+                        ),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    text = stringResource(R.string.app_name),
+                    style = MaterialTheme.typography.headlineMedium,
+                    modifier = Modifier.weight(1f),
+                )
+                if (debugMode) {
+                    IconButton(onClick = { showDebugLog = true }) {
                         Icon(
-                            Icons.Filled.SpeakerGroup,
-                            contentDescription = stringResource(R.string.menu_devices),
+                            Icons.Default.BugReport,
+                            contentDescription = stringResource(R.string.debug_log_title),
                         )
                     }
-                    IconButton(onClick = { showDriverStatusDialog = true }) {
-                        Icon(
-                            Icons.Default.Info,
-                            contentDescription = stringResource(R.string.menu_driver_status),
-                        )
-                    }
-                    IconButton(onClick = { showPresetDialog = true }) {
-                        Icon(
-                            Icons.Default.LibraryMusic,
-                            contentDescription = stringResource(R.string.menu_presets),
-                        )
-                    }
-                    IconButton(onClick = { showSettingsDialog = true }) {
-                        Icon(
-                            Icons.Default.Settings,
-                            contentDescription = stringResource(R.string.menu_settings),
-                        )
-                    }
-                },
-            )
-        },
-        floatingActionButton = {
+                }
+                IconButton(onClick = { showPresetDialog = true }) {
+                    Icon(
+                        Icons.Default.LibraryMusic,
+                        contentDescription = stringResource(R.string.menu_presets),
+                    )
+                }
+                IconButton(onClick = { showDeviceDialog = true }) {
+                    Icon(
+                        Icons.Filled.SpeakerGroup,
+                        contentDescription = stringResource(R.string.menu_devices),
+                    )
+                }
+                IconButton(onClick = { showDriverStatusDialog = true }) {
+                    Icon(
+                        Icons.Default.Info,
+                        contentDescription = stringResource(R.string.menu_driver_status),
+                    )
+                }
+                IconButton(onClick = { showSettingsDialog = true }) {
+                    Icon(
+                        Icons.Default.Settings,
+                        contentDescription = stringResource(R.string.menu_settings),
+                    )
+                }
+            }
+
             val masterOn = state.masterEnable
             val darkTheme = isSystemInDarkTheme()
-            val containerColor =
+            val pillContainer =
                 when {
-                    !masterOn -> MaterialTheme.colorScheme.errorContainer
+                    !masterOn -> MaterialTheme.colorScheme.secondaryContainer
                     darkTheme -> master_on_container_dark
                     else -> master_on_container_light
                 }
-            val onContainerColor =
+            val pillContent =
                 when {
-                    !masterOn -> MaterialTheme.colorScheme.onErrorContainer
+                    !masterOn -> MaterialTheme.colorScheme.onSecondaryContainer
                     darkTheme -> master_on_onContainer_dark
                     else -> master_on_onContainer_light
                 }
-            FloatingActionButton(
+            Card(
                 onClick = { viewModel.setMasterEnabled(!masterOn) },
-                containerColor = containerColor,
-                contentColor = onContainerColor,
+                shape = CircleShape,
+                colors =
+                    CardDefaults.cardColors(
+                        containerColor = pillContainer,
+                        contentColor = pillContent,
+                    ),
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = UiDimens.Standard)
+                        .height(76.dp),
             ) {
-                Icon(
-                    imageVector = Icons.Default.PowerSettingsNew,
-                    contentDescription = stringResource(R.string.master_enable),
-                )
+                Row(
+                    modifier =
+                        Modifier
+                            .fillMaxSize()
+                            .padding(horizontal = UiDimens.Large),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Text(
+                        text =
+                            stringResource(
+                                if (masterOn) R.string.master_enabled else R.string.master_disabled,
+                            ),
+                        style = MaterialTheme.typography.titleLarge,
+                        modifier = Modifier.weight(1f),
+                    )
+                    Switch(
+                        checked = masterOn,
+                        onCheckedChange = { viewModel.setMasterEnabled(it) },
+                    )
+                }
             }
-        },
-        floatingActionButtonPosition = FabPosition.End,
-    ) { paddingValues ->
-        EffectList(
-            state = state,
-            viewModel = viewModel,
-            modifier = Modifier.padding(paddingValues),
-        )
+
+            Spacer(modifier = Modifier.height(UiDimens.Medium))
+            EffectList(
+                state = state,
+                viewModel = viewModel,
+                modifier = Modifier.padding(horizontal = UiDimens.Standard),
+            )
+            Spacer(modifier = Modifier.height(UiDimens.FabListPadding))
+        }
     }
 }
 
@@ -396,34 +409,32 @@ private fun EffectList(
         animationSpec = tween(durationMillis = 200),
         label = "effectListAlpha",
     )
-    LazyColumn(
-        modifier = modifier.fillMaxSize().graphicsLayer { this.alpha = alpha },
-        contentPadding = PaddingValues(bottom = UiDimens.FabListPadding),
+    Column(
+        modifier = modifier.fillMaxWidth().graphicsLayer { this.alpha = alpha },
     ) {
-        item { Spacer(modifier = Modifier.height(UiDimens.Medium)) }
-        item { MasterLimiterRows(state, viewModel) }
-        item { PlaybackGainSection(state, viewModel) }
-        item { LUFSTargetingSection(state, viewModel) }
-        item { MultibandCompressorSection(state, viewModel) }
-        item { FetCompressorSection(state, viewModel) }
-        item { DdcSection(state, viewModel) }
-        item { SpectrumExtensionSection(state, viewModel) }
-        item { EqualizerSection(state, viewModel) }
-        item { DynamicEqSection(state, viewModel) }
-        item { ConvolverSection(state, viewModel) }
-        item { FieldSurroundSection(state, viewModel) }
-        item { DiffSurroundSection(state, viewModel) }
-        item { StereoImagerSection(state, viewModel) }
-        item { HeadphoneSurroundSection(state, viewModel) }
-        item { ReverberationSection(state, viewModel) }
-        item { DynamicSystemSection(state, viewModel) }
-        item { TubeSimulatorSection(state, viewModel) }
-        item { PsychoacousticBassSection(state, viewModel) }
-        item { KlarheitBassSection(state, viewModel) }
-        item { KlarheitBassMonoSection(state, viewModel) }
-        item { KlarheitClaritySection(state, viewModel) }
-        item { AuditoryProtectionSection(state, viewModel) }
-        item { AnalogXSection(state, viewModel) }
-        item { SpeakerOptSection(state, viewModel) }
+        MasterLimiterRows(state, viewModel)
+        PlaybackGainSection(state, viewModel)
+        LUFSTargetingSection(state, viewModel)
+        MultibandCompressorSection(state, viewModel)
+        FetCompressorSection(state, viewModel)
+        DdcSection(state, viewModel)
+        SpectrumExtensionSection(state, viewModel)
+        EqualizerSection(state, viewModel)
+        DynamicEqSection(state, viewModel)
+        ConvolverSection(state, viewModel)
+        FieldSurroundSection(state, viewModel)
+        DiffSurroundSection(state, viewModel)
+        StereoImagerSection(state, viewModel)
+        HeadphoneSurroundSection(state, viewModel)
+        ReverberationSection(state, viewModel)
+        DynamicSystemSection(state, viewModel)
+        TubeSimulatorSection(state, viewModel)
+        PsychoacousticBassSection(state, viewModel)
+        KlarheitBassSection(state, viewModel)
+        KlarheitBassMonoSection(state, viewModel)
+        KlarheitClaritySection(state, viewModel)
+        AuditoryProtectionSection(state, viewModel)
+        AnalogXSection(state, viewModel)
+        SpeakerOptSection(state, viewModel)
     }
 }

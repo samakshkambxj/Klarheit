@@ -21,6 +21,8 @@
 
     <!-- Master -->
     <string name="master_enable">Master Enable</string>
+    <string name="master_enabled">Enabled</string>
+    <string name="master_disabled">Disabled</string>
     <string name="menu_driver_status">Driver Status</string>
     <string name="menu_presets">Presets</string>
     <string name="menu_settings">Settings</string>

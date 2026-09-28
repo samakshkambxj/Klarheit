@@ -108,7 +108,7 @@ private val DynamicSystemButtonIconSize = EffectHorizontalPadding
 private val DynamicSystemButtonIconSpacing = UiDimens.XSmall
 private val DynamicSystemButtonSpacing = UiDimens.Medium
 private val EffectCardHorizontalPadding = EffectHorizontalPadding
-private val EffectCardVerticalPadding = UiDimens.XSmall
+private val EffectCardVerticalPadding = UiDimens.Hairline
 private val EffectContentPadding = EffectHorizontalPadding
 private val EffectHeaderIconSize = UiDimens.IconMedium
 private val EffectHeaderIconSpacing = UiDimens.Large
@@ -138,19 +138,8 @@ fun EffectSection(
     var showHelpDialog by rememberSaveable { mutableStateOf(false) }
     val haptic = LocalHapticFeedback.current
 
-    Card(
-        modifier =
-            modifier
-                .fillMaxWidth()
-                .padding(
-                    horizontal = EffectCardHorizontalPadding,
-                    vertical = EffectCardVerticalPadding,
-                ),
-        colors =
-            CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-            ),
-    ) {
+    @Composable
+    fun Body() {
         Column {
             Row(
                 modifier =
@@ -227,6 +216,22 @@ fun EffectSection(
                 }
             }
         }
+    }
+
+    Card(
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .padding(
+                    horizontal = EffectCardHorizontalPadding,
+                    vertical = EffectCardVerticalPadding,
+                ),
+        colors =
+            CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+            ),
+    ) {
+        Body()
     }
 
     if (showHelpDialog) {

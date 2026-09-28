@@ -11,6 +11,8 @@
 
     <!-- Master -->
     <string name="master_enable">Мастер-лимитер включён</string>
+    <string name="master_enabled">Включено</string>
+    <string name="master_disabled">Отключено</string>
     <string name="menu_driver_status">Статус драйвера</string>
     <string name="menu_presets">Профили</string>
     <string name="menu_settings">Настройки</string>

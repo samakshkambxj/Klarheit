@@ -11,6 +11,8 @@
 
     <!-- Master -->
     <string name="master_enable">总开关</string>
+    <string name="master_enabled">已启用</string>
+    <string name="master_disabled">已禁用</string>
     <string name="menu_driver_status">驱动状态</string>
     <string name="menu_presets">预设</string>
     <string name="menu_settings">设置</string>
