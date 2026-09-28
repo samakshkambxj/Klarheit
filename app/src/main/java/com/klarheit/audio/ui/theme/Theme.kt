@@ -2,7 +2,9 @@ package com.klarheit.audio.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
+import androidx.compose.material3.MaterialExpressiveTheme
+import androidx.compose.material3.MotionScheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
@@ -66,6 +68,7 @@ private val DarkColorScheme =
         outlineVariant = md_theme_dark_outlineVariant,
     )
 
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun KlarheitTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
@@ -88,8 +91,9 @@ fun KlarheitTheme(
             }
         }
 
-    MaterialTheme(
+    MaterialExpressiveTheme(
         colorScheme = colorScheme,
+        motionScheme = MotionScheme.expressive(),
         content = content,
     )
 }

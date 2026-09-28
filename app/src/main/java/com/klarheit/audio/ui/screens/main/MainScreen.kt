@@ -365,7 +365,6 @@ fun MainScreen(viewModel: MainViewModel = hiltViewModel()) {
                 }
             FloatingActionButton(
                 onClick = { viewModel.setMasterEnabled(!masterOn) },
-                shape = MaterialTheme.shapes.large,
                 containerColor = containerColor,
                 contentColor = onContainerColor,
             ) {
