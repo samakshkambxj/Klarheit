@@ -377,7 +377,10 @@ fun MainScreen(viewModel: MainViewModel = hiltViewModel()) {
                                 if (masterOn) R.string.master_enabled else R.string.master_disabled,
                             ),
                         style = MaterialTheme.typography.titleMedium,
-                        modifier = Modifier.weight(1f),
+                        modifier =
+                            Modifier
+                                .weight(1f)
+                                .padding(start = UiDimens.Medium),
                     )
                     Switch(
                         checked = masterOn,
