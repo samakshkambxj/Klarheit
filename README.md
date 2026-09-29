@@ -74,4 +74,4 @@ Install the APK, flash the Magisk module matching your HAL
 
 App is GPL-3.0 (`LICENSE`). The DSP core carries its own notice —
 personal use only, no commercial use
-(`drivers/viper/ViPERDSP/README.md`).
+(`drivers/viper/KlarheitDSP/README.md`).

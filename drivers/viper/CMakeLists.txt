@@ -16,7 +16,7 @@ add_compile_options(
     -fno-unwind-tables -fno-asynchronous-unwind-tables
     -fvisibility=hidden -fvisibility-inlines-hidden)
 
-add_subdirectory(ViPERDSP)
+add_subdirectory(KlarheitDSP)
 
 add_library(v4a_re SHARED
     src/ViPER4Android.cpp
@@ -28,7 +28,7 @@ target_include_directories(v4a_re PRIVATE
     src/include
 )
 
-target_link_libraries(v4a_re ViPERDSP log)
+target_link_libraries(v4a_re KlarheitDSP log)
 
 target_compile_options(v4a_re PRIVATE
     -Wall -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function)

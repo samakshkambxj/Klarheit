@@ -21,6 +21,6 @@
 // Feel free to add your architecture if it's not listed here.
 #endif
 
-#define VIPER_NAME "ViPERDSP"
+#define VIPER_NAME "KlarheitDSP"
 #define VIPER_AUTHORS "viper.WYF, Martmists, Iscle, llsl"
 #define VIPER_DEFAULT_SAMPLING_RATE 44100

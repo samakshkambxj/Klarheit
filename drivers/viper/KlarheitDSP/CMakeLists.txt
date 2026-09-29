@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.16)
-project(ViPERDSP LANGUAGES C CXX)
+project(KlarheitDSP LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(VIPERDSP_SOURCES
+set(KLARHEITDSP_SOURCES
     # FFT
     viper/utils/pffft.c
 
@@ -66,15 +66,15 @@ set(VIPERDSP_SOURCES
     viper/utils/WaveBuffer.cpp
 )
 
-add_library(ViPERDSP STATIC ${VIPERDSP_SOURCES})
+add_library(KlarheitDSP STATIC ${KLARHEITDSP_SOURCES})
 
-target_include_directories(ViPERDSP PUBLIC
+target_include_directories(KlarheitDSP PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/include
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-target_compile_options(ViPERDSP PRIVATE -O3 -flto)
+target_compile_options(KlarheitDSP PRIVATE -O3 -flto)
 
 if (ANDROID)
-    target_link_libraries(ViPERDSP log)
+    target_link_libraries(KlarheitDSP log)
 endif ()
