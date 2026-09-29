@@ -1,3 +1,13 @@
+## v1.0
+
+### Changed
+
+- Reset versioning to v1.0 baseline for app + driver
+
+### App Requirements:
+
+1.0+
+
 ## 2.1.0
 
 ### Added
