@@ -43,7 +43,15 @@ android {
 
     buildTypes {
         release {
-            signingConfig = if (keystoreFile.isNotEmpty()) signingConfigs.getByName("release") else null
+            // CI has no release key unless signing secrets are configured;
+            // fall back to the debug key so the APK is always installable.
+            signingConfig =
+                if (keystoreFile.isNotEmpty()) {
+                    signingConfigs.getByName("release")
+                } else {
+                    logger.warn("No KEYSTORE_* configured; signing release APK with debug key.")
+                    signingConfigs.getByName("debug")
+                }
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(
