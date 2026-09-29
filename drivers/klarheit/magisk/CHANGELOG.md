@@ -1,3 +1,13 @@
+## v1.1
+
+### Changed
+
+- Complete rebrand: ViPER/V4A to Klarheit (engine, module, app, tooling)
+
+### App Requirements:
+
+1.1+
+
 ## v1.0
 
 ### Changed
