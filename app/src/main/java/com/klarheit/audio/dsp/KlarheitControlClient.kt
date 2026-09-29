@@ -7,8 +7,8 @@ import com.klarheit.audio.utils.FileLogger
 
 @SuppressLint("PrivateApi")
 object KlarheitControlClient {
-    private const val SERVICE_NAME = "viper.control"
-    private const val DESCRIPTOR = "viper.fx.IViperControl"
+    private const val SERVICE_NAME = "klarheit.control"
+    private const val DESCRIPTOR = "klarheit.fx.IKlarheitControl"
     private const val TRANSACTION_DISPATCH_PARAM = IBinder.FIRST_CALL_TRANSACTION + 0
     private const val TRANSACTION_GET_STATUS = IBinder.FIRST_CALL_TRANSACTION + 1
 

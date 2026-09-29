@@ -62,15 +62,15 @@ jobs:
           export ANDROID_NDK_HOME="$SDK/ndk/28.2.13676358"
           if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
             TAG="${GITHUB_REF#refs/tags/}"
-            make -C drivers/viper libs zip VERSION_NAME="$TAG" VERSION_CODE="$GITHUB_RUN_NUMBER"
+            make -C drivers/klarheit libs zip VERSION_NAME="$TAG" VERSION_CODE="$GITHUB_RUN_NUMBER"
           else
-            make -C drivers/viper libs zip
+            make -C drivers/klarheit libs zip
           fi
 
       - uses: actions/upload-artifact@v4
         with:
           name: driver-zips
-          path: drivers/viper/out/*.zip
+          path: drivers/klarheit/out/*.zip
 
   release:
     needs: [app, driver]

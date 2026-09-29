@@ -8,5 +8,5 @@ This commit imports ViPER base verbatim (no DSP changes).
 
 Original work: Zhuhang and ViPER520 (ViPER4Android).
 Reverse engineering: Martmists, Iscle, likelikeslike.
-KlarheitDSP carries its own notice (personal use only, no commercial use) — see drivers/viper/KlarheitDSP/README.md.
+KlarheitDSP carries its own notice (personal use only, no commercial use) — see drivers/klarheit/KlarheitDSP/README.md.
 App is GPL-3.0 — see LICENSE.

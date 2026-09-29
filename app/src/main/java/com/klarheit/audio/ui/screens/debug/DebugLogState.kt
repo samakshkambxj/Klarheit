@@ -33,7 +33,7 @@ private const val COMMIT_BATCH_LIMIT = 64
 private const val RECENT_APP_MESSAGES_CAPACITY = 512
 private const val FILE_LOGGER_TAG = "Klarheit"
 private const val LOGCAT_TAGS =
-    "Klarheit:* ViPER:* ViPER4Android:* AHAL_EffectImpl:* AHAL_EffectThread:* " +
+    "Klarheit:* AHAL_EffectImpl:* AHAL_EffectThread:* " +
         "AHAL_EffectContext:* FMQ_EventFlags:*"
 
 @Stable

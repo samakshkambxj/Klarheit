@@ -1,0 +1,7 @@
+id=klarheit
+name=Klarheit DSP
+version=
+versionCode=
+author=Klarheit
+description=Klarheit DSP is an audio enhancing software to provide everyone with a better audio experience
+updateJson=https://raw.githubusercontent.com/samakshkambxj/Klarheit/main/drivers/klarheit/magisk/update.json

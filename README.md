@@ -45,7 +45,7 @@ AIDL audio HAL driver support (Android 9–16).
 ```
 Klarheit/
   app/             Klarheit app (package com.klarheit.audio)
-  drivers/viper/   DSP driver + Magisk module
+  drivers/klarheit/   DSP driver + Magisk module
   docs/            attribution and import manifests
   presets/         preset files
   Makefile.app     app build (APK -> apk/)
@@ -59,8 +59,8 @@ Prerequisites: JDK 17+, Android SDK with platform 37.0 + build-tools 37
 ```bash
 make -f Makefile.app debug    # -> apk/Klarheit-<ver>-debug.apk
 make -f Makefile.app release  # signed if KEYSTORE_* set in local.properties
-make -C drivers/viper libs    # driver .so (arm64-v8a + armeabi-v7a)
-make -C drivers/viper zip     # flashable Magisk module zip
+make -C drivers/klarheit libs    # driver .so (arm64-v8a + armeabi-v7a)
+make -C drivers/klarheit zip     # flashable Magisk module zip
 ```
 
 Install the APK, flash the Magisk module matching your HAL
@@ -74,4 +74,4 @@ Install the APK, flash the Magisk module matching your HAL
 
 App is GPL-3.0 (`LICENSE`). The DSP core carries its own notice —
 personal use only, no commercial use
-(`drivers/viper/KlarheitDSP/README.md`).
+(`drivers/klarheit/KlarheitDSP/README.md`).

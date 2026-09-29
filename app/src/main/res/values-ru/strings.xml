@@ -7,7 +7,7 @@
     <string name="notification_text">Обработка аудиопотока активна</string>
     <string name="notification_bulk_op_channel_name">Групповые операции</string>
     <string name="notification_bulk_op_channel_description">Прогресс выполнения групповых операций</string>
-    <string name="qs_tile_master_label">Обработка аудиопотока V4A</string>
+    <string name="qs_tile_master_label">Обработка аудиопотока Klarheit</string>
 
     <!-- Master -->
     <string name="master_enable">Мастер-лимитер включён</string>
@@ -240,7 +240,7 @@
     <string name="settings_import_preset">Импортировать профиль</string>
     <string name="settings_import_kernel">Импортировать импульс</string>
     <string name="settings_import_vdc">Импортировать VDC</string>
-    <string name="settings_auto_start_desc">Запуск аудиослужбы V4A при загрузке устройства</string>
+    <string name="settings_auto_start_desc">Запуск аудиослужбы Klarheit при загрузке устройства</string>
     <string name="settings_global_mode_desc">Применять эффекты глобально для всей системы</string>
     <string name="settings_excluded_apps_desc">Пропускать аудиосессии для выбранных приложений</string>
     <string name="settings_import_preset_desc">Импортирование файла профиля .json</string>
